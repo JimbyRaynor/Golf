@@ -94,9 +94,28 @@ while (f <= g1) : # f is hole number
       print("100 to 200 yards    19 to 13")
       print("  0 to 100 yards    29 to 23")
       print("Not all clubs are available")
-  while not holefinished:
-      L = holes[0]["Ldata"]
-      print(L)
+  s1 = 0
+  print('Hole',f)
+  L = holes[f-1]["Ldata"]
+  d = holes[f-1]["distance"]
+  p = holes[f-1]["par"]
+  g3=g3+p
+  print(L)
+  print("You are at the tee off for Hole",f,\
+        ", Distance",d,"yards, par",p)
+  print("On your right is")
+  print(holes[f-1]["right"])
+  print("On your left is")
+  print(holes[f-1]["left"])
+  while not holefinished: #s1 loop, number of shots    
       a = 1
       c = chooseclub()
-      f = f + 1
+      s1 = s1 + 1
+      w = 1
+      if c > 13: # putter or just short distance
+        print("Now gauge your distance by a percentage (1 to 100)")  
+        print("of a full swing")
+        w = int(input("percentage = "))
+        print()
+      print("shot", s1)
+  f = f + 1
